@@ -1,1 +1,1 @@
-sudo docker run -p 4000:4000 -p 8080:8080 -p 5500:5500 -p 5577:5577  --name my-ss -e XROAD_TOKEN_PIN=secret niis/xroad-security-server
+sudo docker run -p 4000:4000 -p 8080:8080 -p 5500:5500 -p 5577:5577  --name my-ss -e XROAD_TOKEN_PIN=secret niis/xroad-security-server-sidecar:<version[-type[-variant]

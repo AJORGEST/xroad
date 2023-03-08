@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   my-ss-1:
-    image:  niis/xroad-security-server
+    image:  niis/xroad-security-server-sidecar:<version[-type[-variant]
     environment:
       - XROAD_TOKEN_PIN="1234"
     ports:
@@ -12,7 +12,7 @@ services:
       - x-road-network
 
   my-ss-2:
-    image:  niis/xroad-security-server
+    image:  niis/xroad-security-server-sidecar:<version[-type[-variant]
     environment:
       - XROAD_TOKEN_PIN="1234"
     ports:
