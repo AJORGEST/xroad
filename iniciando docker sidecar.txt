@@ -1,0 +1,18 @@
+https://hub.docker.com/r/niis/xroad-security-server
+
+sudo docker exec -t 65dde6e43b64 supervisorctl status
+
+### Create a custom network for x-road containers
+
+docker network create -d bridge x-road-network
+
+### Create more than one security server containers and (optionally) assign them a network-alias for easier reference
+
+docker run -d -p 4000:4000 -p 4001:80 --network x-road-network --name my-ss1 niis/xroad-security-server
+
+docker run -p 4100:4000 -p 4101:80 --network x-road-network --name my-ss2 niis/xroad-security-server
+
+One can create the autologin file by hand after initializing the security server:
+
+$ docker exec my-ss su -c 'echo 1234 >/etc/xroad/autologin' xroad
+$ docker exec my-ss supervisorctl start xroad-autologin
